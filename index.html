@@ -4,29 +4,52 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="styles.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap" rel="stylesheet">
+
+
     <title>Calculator</title>
 </head>
 <body>
     <div class="calculatorBody">
-        <div class="upperDisplay"></div>
-        <div class="lowerDisplay">Value Goes Here</div>
-        <button class="calcButton value" data-value = "1" >1</button>
-        <button class="calcButton value" data-value = "2" >2</button>
-        <button class="calcButton value" data-value = "3" >3</button>
-        <button class="calcButton value" data-value = "4" >4</button>
-        <button class="calcButton value" data-value = "5" >5</button>
-        <button class="calcButton value" data-value = "6" >6</button>
-        <button class="calcButton value" data-value = "7" >7</button>
-        <button class="calcButton value" data-value = "8" >8</button>
-        <button class="calcButton value" data-value = "9" >9</button>
-        <button class="calcButton value" data-value = "0" >0</button>
-        <button class="calcButton operatorButton" data-operator = "*" >*</button>
-        <button class="calcButton operatorButton" data-operator = "-">-</button>
-        <button class="calcButton operatorButton" data-operator = "+">+</button>
-        <button class="calcButton operatorButton" data-operator = "/">/</button>
-        <button class="calcButton operatorButton" data-operator = "=">=</button>
+        <div class="display">
+            <div class="upperDisplay"></div>
+            <div class="lowerDisplay"></div>
+        </div> 
+        <div class="calcRow">
+            <button class="calcButton top clear"  >Clear</button>
+            <button class="calcButton top delete"  >Delete</button>
+        </div>
+        <div class="calcRow">
+            <button class="calcButton value" data-value = "1" >1</button>
+            <button class="calcButton value" data-value = "2" >2</button>
+            <button class="calcButton value" data-value = "3" >3</button>
+            <button class="calcButton operatorButton" data-operator = "x">x</button>
+        </div>
+        <div class="calcRow">
+            <button class="calcButton value" data-value = "4" >4</button>
+            <button class="calcButton value" data-value = "5" >5</button>
+            <button class="calcButton value" data-value = "6" >6</button>
+            <button class="calcButton operatorButton" data-operator = "-">-</button>
+        </div>
+        <div class="calcRow">
+            <button class="calcButton value" data-value = "7" >7</button>
+            <button class="calcButton value" data-value = "8" >8</button>
+            <button class="calcButton value" data-value = "9" >9</button>
+            <button class="calcButton operatorButton" data-operator = "+">+</button>
+        </div>
+        <div class="calcRow">
+            <button class="calcButton placeholder" >P</button>
+            <button class="calcButton value" data-value = "0" >0</button>
+            <button class="calcButton operatorButton" data-operator = "/">/</button>
+            <button class="calcButton operatorButton" data-operator = "=">=</button>
+     
+        </div>
 
     </div>
+    <div class="footer"> Created by Andrew <a style='margin-top:5px' href="https://github.com/Andrewyuhu" target='_blank' > <img src="./images/github.svg"> </a>  </div>
     <script src="scripts.js"></script>
 </body>
 </html>
