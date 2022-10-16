@@ -14,13 +14,41 @@ initilizeCalculator();
 function initilizeCalculator() {
     const calcButtonValue = document.querySelectorAll(".calcButton.value");
     const calcButtonOperator = document.querySelectorAll(".calcButton.operatorButton");
+    const decimalOperator = document.querySelector('.decimal');
     const clearVal = document.querySelector('.clear');
     const deleteVal = document.querySelector('.delete');
+
+    document.addEventListener('keydown',function(e){
+        console.log(e.key);
+        const value = document.querySelector(`button[data-value="${e.key}"]`);
+        const operator = document.querySelector(`button[data-operator="${e.key}"]`);
+
+        if (value) {
+            if (numberArray.length >= 16) numberArray.pop();
+            numberArray.push(value.getAttribute('data-value'));
+            lowerDisplay.textContent = `${numberArray.join('')}`;
+        }
+    });
+
+    decimalOperator.addEventListener('click', () => {
+        if (numberArray.includes('.') ) {
+	        return;
+        } else {
+            numberArray.push(".");
+            lowerDisplay.textContent = `${numberArray.join('')}`;
+        }
+    })
+
+
+
+
     calcButtonOperator.forEach((button) => 
     (button.addEventListener('click', operatorHandler )));
 
     calcButtonValue.forEach((button) => {
         button.addEventListener('click', () => {
+            // Max 16 digits allowed per thing
+            if (numberArray.length >= 16) numberArray.pop();
             numberArray.push(button.getAttribute('data-value'));
             lowerDisplay.textContent = `${numberArray.join('')}`;
         });
@@ -110,7 +138,7 @@ function determineAnswer () {
         case (currentOperator == "-"):
             subtractValues();
             break;
-        case (currentOperator == "/"):
+        case (currentOperator == "÷"):
             divideValues();
             break;
         case (currentOperator == "x"):
@@ -123,6 +151,11 @@ function determineAnswer () {
         nextOperator = null;
         currentOperator = null;
     } else {
+        if ([...String(answer)].length > 16){
+            answer = answer.toExponential()
+            answer = +answer.toFixed(6);
+        }
+
         upperDisplay.textContent = `${answer + nextOperator}`
         lowerDisplay.textContent = `${answer}`;
         currentOperator = nextOperator;
